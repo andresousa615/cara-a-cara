@@ -1,4 +1,4 @@
-# Cara a Cara
+# Cara a Cara (Face to Face)
 
 A memory game that shows, in two minutes, why medical images need to be
 anonymised. The cards are faces reconstructed from real head MRI scans.
