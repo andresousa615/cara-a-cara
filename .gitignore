@@ -1,0 +1,16 @@
+# Real faces and scan data — generated locally, never committed
+ixi/
+data/
+*.tar
+
+# Game state: results contain participant names
+state/
+
+# Licensed font, not redistributable
+game/fonts/
+
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

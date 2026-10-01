@@ -1,0 +1,5 @@
+# Allow-list: the image only needs the server and the page.
+*
+!serve.py
+!game/
+game/fonts/

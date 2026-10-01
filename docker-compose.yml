@@ -1,0 +1,12 @@
+# Build the cards first:  ./setup.sh --no-serve
+# Then:                   docker compose up -d   →  http://127.0.0.1:8000
+services:
+  cara-a-cara:
+    build: .
+    image: cara-a-cara
+    ports:
+      - "127.0.0.1:8000:8000"   # use "8000:8000" only on a trusted network
+    volumes:
+      - ./data:/app/data:ro
+      - ./state:/state
+    restart: unless-stopped

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cara a Cara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap">
+<link rel="icon" type="image/png" href="brand/simbolo-positivo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="brand-bar">
+  <a class="brand" href="https://www.inesctec.pt" target="_blank" rel="noopener" aria-label="INESC TEC">
+    <img src="brand/logo-novo.png" alt="INESC TEC" height="44" width="135">
+  </a>
+</header>
+
+<main class="stage">
+
+<!-- ============ ECRÃ: INTRODUÇÃO ============ -->
+<section class="screen is-active" id="screen-intro">
+  <div class="stack">
+    <p class="eyebrow">Jogo da memória</p>
+    <h1 class="display">Cara a Cara</h1>
+    <p class="lede">Duas rondas, ambas a contar o tempo.</p>
+    <label class="name-field">
+      <span class="name-field-label">O teu nome</span>
+      <input id="player-name" type="text" placeholder="escreve aqui"
+             maxlength="40" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="row">
+      <button class="btn btn-primary" id="btn-start">Começar</button>
+      <button class="btn btn-quiet" id="btn-scores">Resultados</button>
+      <button class="btn btn-quiet" id="btn-settings">Definições</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECRÃ: APRESENTAÇÃO DA RONDA ============ -->
+<section class="screen" id="screen-brief">
+  <div class="stack">
+    <p class="eyebrow" id="brief-round">Ronda 1</p>
+    <h2 class="display" id="brief-title">Encontra os pares</h2>
+    <p class="lede" id="brief-text"></p>
+    <button class="btn btn-primary" id="btn-play">Vamos a isso</button>
+  </div>
+</section>
+
+<!-- ============ ECRÃ: TABULEIRO ============ -->
+<section class="screen screen-board" id="screen-board">
+  <header class="hud">
+    <div class="hud-left">
+      <span class="hud-round" id="hud-round">Ronda 1</span>
+      <span class="hud-task" id="hud-task">Encontra os pares</span>
+    </div>
+    <div class="hud-right">
+      <div class="stat">
+        <span class="stat-label">Pares</span>
+        <span class="stat-value" id="hud-pairs">0/12</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Tentativas</span>
+        <span class="stat-value" id="hud-moves">0</span>
+      </div>
+      <div class="stat stat-time">
+        <span class="stat-label">Tempo</span>
+        <span class="stat-value" id="hud-time">0:00</span>
+      </div>
+      <button class="btn btn-danger" id="btn-give-up" hidden>Desisto</button>
+    </div>
+  </header>
+  <div class="board-wrap">
+    <div class="board" id="board"></div>
+  </div>
+  <p class="board-note" id="board-note"></p>
+</section>
+
+<!-- ============ ECRÃ: FIM DA RONDA 1 ============ -->
+<section class="screen" id="screen-mid">
+  <div class="stack">
+    <p class="eyebrow">Ronda 1 terminada</p>
+    <h2 class="display" id="mid-time">0:00</h2>
+    <p class="lede">Agora outra vez, com as caras apagadas.</p>
+    <button class="btn btn-primary" id="btn-next">Ronda 2</button>
+  </div>
+</section>
+
+<!-- ============ ECRÃ: RESULTADOS DA PARTIDA ============ -->
+<section class="screen screen-results" id="screen-results">
+  <div class="results-stack">
+    <div class="scoreboard">
+      <article class="score">
+        <p class="score-round">Ronda 1</p>
+        <p class="score-sub">caras normais</p>
+        <p class="score-time" id="score-time-1">0:00</p>
+        <p class="score-moves" id="score-moves-1">0 tentativas</p>
+      </article>
+      <article class="score score-hard">
+        <p class="score-round">Ronda 2</p>
+        <p class="score-sub">caras anonimizadas</p>
+        <p class="score-time" id="score-time-2">0:00</p>
+        <p class="score-moves" id="score-moves-2">0 tentativas</p>
+      </article>
+    </div>
+
+    <p class="verdict" id="verdict"></p>
+
+    <section class="panel">
+      <h3 class="panel-title">O computador também jogou a ronda 2</h3>
+      <div class="facts">
+        <div class="fact">
+          <p class="fact-num">50<span>/96</span></p>
+          <p class="fact-label">não encontrou cara nenhuma</p>
+        </div>
+        <div class="fact">
+          <p class="fact-num">2<span>/46</span></p>
+          <p class="fact-label">acertou na pessoa</p>
+        </div>
+        <div class="fact">
+          <p class="fact-num">44<span>/46</span></p>
+          <p class="fact-label">confundiu-a com um estranho</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="saved-note" id="saved-note"></p>
+    <div class="row">
+      <button class="btn btn-primary" id="btn-again">Jogar outra vez</button>
+      <button class="btn btn-quiet" id="btn-see-scores">Ver resultados</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECRÃ: REGISTO DE RESULTADOS ============ -->
+<section class="screen screen-scores" id="screen-scores">
+  <div class="scores-stack">
+    <header class="scores-head">
+      <div>
+        <p class="eyebrow">Registo</p>
+        <h2 class="title-md">Resultados guardados</h2>
+      </div>
+      <div class="row">
+        <button class="btn btn-quiet" id="btn-scores-back">Voltar</button>
+        <button class="btn btn-danger" id="btn-clear-all">Limpar tudo</button>
+      </div>
+    </header>
+
+    <div class="scores-tools">
+      <input class="scores-search" id="scores-search" type="search"
+             placeholder="Procurar por nome" autocomplete="off" spellcheck="false">
+      <div class="options scores-sort" id="scores-sort" role="group" aria-label="Ordenar por">
+        <button class="option is-on" data-sort="at" type="button"><span class="option-main">Mais recente</span></button>
+        <button class="option" data-sort="r1ms" type="button"><span class="option-main">Tempo R1</span></button>
+        <button class="option" data-sort="r2ms" type="button"><span class="option-main">Tempo R2</span></button>
+        <button class="option" data-sort="r1moves" type="button"><span class="option-main">Tentativas R1</span></button>
+        <button class="option" data-sort="r2moves" type="button"><span class="option-main">Tentativas R2</span></button>
+        <button class="option" data-sort="ratio" type="button"><span class="option-main">Diferença de tempo</span></button>
+        <button class="option" data-sort="ratioMoves" type="button"><span class="option-main">Diferença de tentativas</span></button>
+      </div>
+    </div>
+
+    <p class="scores-empty" id="scores-empty" hidden>Ainda não há resultados guardados.</p>
+
+    <div class="table-wrap" id="scores-table-wrap">
+      <table class="scores-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th class="num">Ronda 1<br><span class="th-sub">tempo · tentativas</span></th>
+            <th class="num">Ronda 2<br><span class="th-sub">tempo · tentativas</span></th>
+            <th class="num">Diferença<br><span class="th-sub">de tempo</span></th>
+            <th class="num">Diferença<br><span class="th-sub">de tentativas</span></th>
+            <th>Quando</th>
+            <th><span class="sr-only">Acções</span></th>
+          </tr>
+        </thead>
+        <tbody id="scores-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECRÃ: DEFINIÇÕES ============ -->
+<section class="screen screen-settings" id="screen-settings">
+  <div class="settings-stack">
+    <header class="scores-head">
+      <div>
+        <p class="eyebrow">Definições</p>
+        <h2 class="title-md">Como corre o jogo</h2>
+      </div>
+      <div class="row">
+        <a class="btn btn-quiet" href="/curadoria.html">Curadoria dos exames</a>
+        <button class="btn btn-quiet" id="btn-settings-back">Voltar</button>
+      </div>
+    </header>
+
+    <section class="setting">
+      <h3 class="setting-title">Tamanho do tabuleiro</h3>
+      <p class="setting-hint">
+        A grelha escolhe quantas cartas entram. A orientação ajusta-se ao ecrã:
+        4×6 num tablet ao alto é 6×4 num portátil.
+      </p>
+      <div class="options" id="opt-cards" role="radiogroup" aria-label="Tamanho do tabuleiro"></div>
+    </section>
+
+    <section class="setting">
+      <h3 class="setting-title">Dificuldade</h3>
+      <p class="setting-hint">Muda os ângulos com que as cartas são mostradas.</p>
+      <div class="options options-wide" id="opt-difficulty" role="radiogroup" aria-label="Dificuldade"></div>
+    </section>
+
+    <section class="setting">
+      <h3 class="setting-title">Enquadramento</h3>
+      <p class="setting-hint">
+        Com a cabeça inteira, o contorno do crânio deixa emparelhar sem olhar
+        para a cara. Fechar sobre o rosto tira essa pista.
+      </p>
+      <div class="options options-wide" id="opt-framing" role="radiogroup" aria-label="Enquadramento"></div>
+    </section>
+
+    <p class="saved-note" id="settings-note"></p>
+  </div>
+</section>
+
+</main>
+
+<script src="game.js"></script>
+</body>
+</html>

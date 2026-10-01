@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curadoria</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap">
+<link rel="icon" type="image/png" href="brand/simbolo-positivo.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="curadoria.css">
+</head>
+<body>
+
+<header class="brand-bar">
+  <a class="brand" href="/" aria-label="Voltar ao jogo">
+    <img src="brand/logo-novo.png" alt="INESC TEC" height="44" width="135">
+  </a>
+</header>
+
+<main class="stage">
+<section class="screen is-active cur">
+
+  <div class="cur-top">
+    <span class="eyebrow">Curadoria</span>
+    <span class="cur-progress" id="progress">–</span>
+    <a class="btn btn-quiet" href="/">Voltar ao jogo</a>
+  </div>
+
+  <div class="cur-exam" id="exam">
+    <p class="cur-id" id="exam-id"></p>
+    <p class="cur-current" id="exam-current"></p>
+    <div class="cur-imgs" id="imgs"></div>
+  </div>
+
+  <div class="cur-buttons">
+    <button class="btn btn-danger cur-btn" id="btn-reject" type="button">← Rejeitar</button>
+    <button class="btn btn-quiet cur-undo" id="btn-undo" type="button">Anterior</button>
+    <button class="btn btn-primary cur-btn" id="btn-keep" type="button">Aceitar →</button>
+  </div>
+
+  <div class="cur-done" id="done" hidden>
+    <h2 class="display">Terminado</h2>
+    <p class="lede" id="done-text"></p>
+    <div class="row">
+      <a class="btn btn-primary" href="/">Voltar ao jogo</a>
+      <button class="btn btn-quiet" id="btn-review-kept" type="button">Rever só os aceites</button>
+      <button class="btn btn-quiet" id="btn-restart" type="button">Rever todos</button>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<script src="curadoria.js"></script>
+</body>
+</html>

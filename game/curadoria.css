@@ -1,0 +1,104 @@
+/* Curadoria: um exame de cada vez. Esquerda rejeita, direita aceita. */
+
+[hidden] { display: none !important; }
+
+.cur {
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vmin, 22px);
+}
+
+.cur-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cur-progress {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.cur-exam {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cur-id { margin: 0; font-size: 0.85rem; color: var(--ink-dim); }
+
+.cur-current {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cur-current.is-reject { color: var(--perigo); }
+
+/* quatro renders lado a lado; a altura disponível manda no tamanho */
+.cur-imgs {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(6px, 1.2vmin, 14px);
+  align-items: center;
+}
+
+.cur-imgs figure { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 5px; align-items: center; }
+
+.cur-imgs img {
+  width: 100%;
+  max-height: calc(100svh - 260px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--it-azul-claro-tenue);
+  background: var(--surface);
+  display: block;
+}
+
+.cur-imgs figcaption {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.cur-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3vmin, 40px);
+  width: 100%;
+}
+
+.cur-btn { font-size: 1.15rem; padding: 16px 40px; }
+.cur-undo { align-self: center; }
+
+.cur-done {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .cur-imgs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cur-imgs img { max-height: calc(50svh - 120px); }
+  .cur-btn { padding: 14px 24px; font-size: 1rem; }
+}

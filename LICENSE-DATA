@@ -1,0 +1,22 @@
+Data licence
+============
+
+The anonymised renderings in assets/anon/ derive from the IXI dataset
+(https://brain-development.org/ixi-dataset/), made available under the
+Creative Commons Attribution-ShareAlike 3.0 licence
+(https://creativecommons.org/licenses/by-sa/3.0/legalcode). They are
+distributed here, as a derivative work, under the same licence.
+
+Changes made to the IXI scans: the facial regions were anonymised by the
+Algernon anonymisation pipeline, and each anonymised volume was rendered as a
+3D surface image from three camera angles and two framings.
+
+This repository does not include raw scans, original (non-anonymised)
+renderings, or the anonymisation model. The model was trained on ADNI data,
+whose Data Use Agreement asks investigators to consider whether publishing
+trained weights could allow participant data to be reconstructed; the weights
+are therefore not published. To play, each user downloads the original scans
+directly from the IXI project, under the IXI terms.
+
+The INESC TEC logos in game/brand/ are trademarks of INESC TEC and are not
+covered by the licences of this repository.

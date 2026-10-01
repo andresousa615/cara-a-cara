@@ -1,0 +1,9 @@
+# Only needed to render the cards (scripts/). The game server uses the
+# Python standard library alone.
+pyvista>=0.43
+vtk>=9.3
+nibabel>=5.0
+numpy>=1.24
+scikit-image>=0.21
+pillow>=10.0
+matplotlib>=3.7
