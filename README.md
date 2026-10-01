@@ -6,7 +6,7 @@ anonymised. The cards are faces reconstructed from real head MRI scans.
 ![Round 2 of the game: anonymised cards next to original faces, which are pixelated in this picture](docs/ronda2.png)
 
 *Round 2, easy difficulty, whole-head framing. In this picture the original
-faces are pixelated on purpose; in the game they are shown in full.*
+faces are pixelated on purpose; in the game they are shown as acquired.*
 
 The game interface is in Portuguese; it was built as an outreach activity for
 primary-school children and the general public.
