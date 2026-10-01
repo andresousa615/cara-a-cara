@@ -17,17 +17,17 @@ const base = process.argv[2] || "http://127.0.0.1:8000";
 const dst = process.argv[3] || "docs/ronda2.png";
 const BLOCKS = 6;   // an original card is reduced to 6×6 blocks
 
-const b = await openBrowser({ width: 1440, height: 900 });
+const b = await openBrowser({ width: 1100, height: 720 });
 try {
   await b.goto(base + "/", 2500);
 
-  // round 2, 8 pairs, hard difficulty, face framing; test mode saves nothing
+  // round 2, 6 pairs, easy difficulty, whole-head framing; test mode saves nothing
   await b.eval(`(async () => {
     for (let i = 0; i < 50 && !state.manifest; i++) await new Promise(r => setTimeout(r, 100));
     if (!state.manifest) throw new Error("manifest not loaded — is data/ built?");
     state.dev = true;
-    state.settings = { cards: 16, difficulty: "dificil", framing: "cara" };
-    state.rounds = roundsFor("dificil");
+    state.settings = { cards: 12, difficulty: "facil", framing: "cabeca" };
+    state.rounds = roundsFor("facil");
     state.roundIndex = 1;
     startRound();
     for (let i = 0; i < 100 && !document.querySelector("#board .card"); i++)
